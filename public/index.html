@@ -4,10 +4,55 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ZapRecall</title>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet"> 
+  
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div class="root"></div>
+    <div class="root">
+
+      <div class="start">
+        <div>
+          <img src="./assets/logo.png" alt="">
+          <p>ZapRecall</p>
+        </div>
+        <button>
+          <span>Praticar React <img src="./assets/next.png" alt=""></span>
+        </button>
+      </div>
+
+      <div class="flashcards">
+        <header>
+          <span><img src="./assets/logo-mini.png" alt="">ZapRecall</span>
+        </header>
+
+        <div class="flashcard-front">
+          <div class="counter">1/8</div>
+          <p></p>
+          <img src="./assets/turn.png" alt="">
+        </div>
+
+        <div class="flashcard-back">
+          <div class="counter">1/8</div>
+          <p>question</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ab et non dignissimos magnam cumque excepturi at reprehenderit quia modi eum, tenetur ipsum commodi nemo numquam vero fuga nisi accusantium.</p>
+          <img src="./assets/turn.png" alt="">
+          <div class="buttons">
+            <button>b</button>
+            <button>r</button>
+            <button>g</button>
+            <button>z</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </body>
 </html>
