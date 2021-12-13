@@ -1,5 +1,4 @@
 //import Flashcard from "./Flashcard";
-import { PureComponent } from "react";
 import {useState} from "react";
 
 const deck = [
@@ -46,7 +45,8 @@ export default function Flashcards(props) {
 }
 let counter = 0;
 function Flashcard(props) {
-    const [flipped, setFlipped] = useState(false)
+    const [flipped, setFlipped] = useState(false);
+    const [buttonClicked, setButtonClicked] = useState(false);
     counter++;
     return (
       <div>
@@ -58,18 +58,23 @@ function Flashcard(props) {
         </div> 
         :
         <div class="flashcard back">
-          <div class="counter">1/8</div>
+          <div class="counter">{counter}/8</div>
           <p>{props.deck.Q}</p>
           <p>{props.deck.A}</p>
           <div class="buttons">
-            <button onClick={() => alert("clicaste-me")}>Aprendi agora</button>
-            <button>Não lembrei</button>
-            <button>Lembrei com esforço</button>
-            <button>Zap!</button>
+            <button className="black" onClick={handleClick}>Aprendi agora</button>
+            <button className="red" onClick={handleClick}>Não lembrei</button>
+            <button className="green" onClick={handleClick}>Lembrei com esforço</button>
+            <button className="yellow" onClick={handleClick}>Zap!</button>
           </div>
         </div>
         }
         </div>
     )
 
+}
+
+function handleClick(e) {
+  let color = e.target.className;
+  counter++;
 }
