@@ -33,7 +33,7 @@ button {
 
     background: none;
     border: 3px solid #FFEF61;
-    border-radius: 10px;
+    border-radius: 12px;
 
     gap: 10px;
 }
@@ -55,7 +55,7 @@ header {
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 15px;
+    padding: 19px;
 
     font-size: 18px;
 }
@@ -70,4 +70,44 @@ header {
     text-align: center;
     font-size: 28px;
     font-weight: bold;
+}
+.back {
+    position: relative;
+}
+.back p:first-of-type {
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    top: 19px;
+}
+.back p {
+    font-size: 16px;
+    font-weight: 400;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 16.67px;
+    
+}
+.buttons button {
+    width: 65px;
+    height: 48px;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.buttons :first-child {
+    border-color: black;
+}
+.buttons :nth-child(2) {
+    border-color: #F64848;
+}
+.buttons :nth-child(3) {
+    border-color: #62DB38;
+}
+.buttons :last-child {
+    border-color: #FFEF61;
 }

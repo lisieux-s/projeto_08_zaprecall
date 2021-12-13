@@ -6,7 +6,7 @@ export default function Start(props) {
       <div>
         <img src="./assets/logo.png" alt="" />
       </div>
-      <button onClick={() => props.setCurrentPage('flashcards')}>
+      <button className="start-button" onClick={() => props.setCurrentPage('flashcards')}>
           <p>Praticar React</p> <img src="./assets/next.png" alt="" />
       </button>
     </div>

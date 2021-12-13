@@ -1,4 +1,6 @@
-import Flashcard from "./Flashcard";
+//import Flashcard from "./Flashcard";
+import { PureComponent } from "react";
+import {useState} from "react";
 
 const deck = [
   {
@@ -35,7 +37,39 @@ export default function Flashcards(props) {
         <header>
           <img src="./assets/logo-mini.png" alt="ZapRecall logo" />
         </header>
-          {Flashcard(deck[props.currentCard])}
+        <Flashcard 
+          setCurrentCard={props.setCurrentCard} 
+          currentCard={props.CurrentCard} 
+          deck={deck[props.currentCard]} />
       </div>
     );
+}
+let counter = 0;
+function Flashcard(props) {
+    const [flipped, setFlipped] = useState(false)
+    counter++;
+    return (
+      <div>
+        {flipped === false ? 
+          <div className="flashcard front">
+          <div className="counter">{counter}/8</div>
+          <p>{props.deck.Q}</p>
+          <img src="./assets/turn.png" alt="turn card" onClick={() => setFlipped(true)}/>
+        </div> 
+        :
+        <div class="flashcard back">
+          <div class="counter">1/8</div>
+          <p>{props.deck.Q}</p>
+          <p>{props.deck.A}</p>
+          <div class="buttons">
+            <button onClick={() => alert("clicaste-me")}>Aprendi agora</button>
+            <button>Não lembrei</button>
+            <button>Lembrei com esforço</button>
+            <button>Zap!</button>
+          </div>
+        </div>
+        }
+        </div>
+    )
+
 }
