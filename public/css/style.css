@@ -99,16 +99,29 @@ header {
     font-weight: 400;
 }
 
-.buttons :nth-child(2) {
-    border-color: #F64848;
-}
-.buttons :nth-child(3) {
-    border-color: #62DB38;
-}
-.buttons :last-child {
-    border-color: #FFEF61;
-}
-
 .black {
     border: 3px solid black;
+}
+.red {
+    border: 3px solid #F64848;
+}
+.green {
+    border: 3px solid #62DB38;
+}
+.yellow {
+    border: 3px solid #FFEF61;
+}
+
+.end-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.end-game :first-child {
+    font-size: 36px;
+    font-weight: 700;
+}
+.end-game :last-child {
+    font-size: 22px;
+    font-weight: 400;
 }

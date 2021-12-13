@@ -8,7 +8,7 @@ export default function App() {
     const [currentCard, setCurrentCard] = useState('0');
     return (
         <div>
-            {currentPage === 'start' ? 
+            {currentPage === "start" ? 
             <Start currentPage={currentPage} setCurrentPage={setCurrentPage}/> : 
             <Flashcards currentCard={currentCard} setCurrentCard={setCurrentCard} />}
         </div>
