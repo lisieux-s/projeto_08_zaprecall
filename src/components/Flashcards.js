@@ -1,5 +1,5 @@
 //import Flashcard from "./Flashcard";
-import {useState} from "react";
+import { useState } from "react";
 
 const deck = [
   {
@@ -31,50 +31,89 @@ const deck = [
 ];
 
 export default function Flashcards(props) {
-    return (
-      <div className="flashcards">
-        <header>
-          <img src="./assets/logo-mini.png" alt="ZapRecall logo" />
-        </header>
-        <Flashcard 
-          setCurrentCard={props.setCurrentCard} 
-          currentCard={props.CurrentCard} 
-          deck={deck[props.currentCard]} />
-      </div>
-    );
+  return (
+    <div className="flashcards">
+      <header>
+        <img src="./assets/logo-mini.png" alt="ZapRecall logo" />
+      </header>
+      <Flashcard
+        setCurrentCard={props.setCurrentCard}
+        currentCard={props.CurrentCard}
+        deck={deck[props.currentCard]}
+      />
+    </div>
+  );
 }
-let counter = 0;
+let counter = 1;
 function Flashcard(props) {
-    const [flipped, setFlipped] = useState(false);
-    const [buttonClicked, setButtonClicked] = useState(false);
-    counter++;
-    return (
-      <div>
-        {flipped === false ? 
-          <div className="flashcard front">
+  const [flipped, setFlipped] = useState(false);
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const [borderColor, setBorderColor] = useState("");
+  {
+    if (!flipped) {
+      return (
+        <div className="flashcard front">
           <div className="counter">{counter}/8</div>
           <p>{props.deck.Q}</p>
-          <img src="./assets/turn.png" alt="turn card" onClick={() => setFlipped(true)}/>
-        </div> 
-        :
-        <div class="flashcard back">
-          <div class="counter">{counter}/8</div>
-          <p>{props.deck.Q}</p>
-          <p>{props.deck.A}</p>
-          <div class="buttons">
-            <button className="black" onClick={handleClick}>Aprendi agora</button>
-            <button className="red" onClick={handleClick}>Não lembrei</button>
-            <button className="green" onClick={handleClick}>Lembrei com esforço</button>
-            <button className="yellow" onClick={handleClick}>Zap!</button>
+          <img
+            src="./assets/turn.png"
+            alt="turn card"
+            onClick={() => setFlipped(true)}
+          />
+        </div>
+      );
+    } else {
+      if(!buttonClicked) {
+        return (
+          <div className="flashcard back {borderColor}">
+            <div className="counter">{counter}/8</div>
+            <p>{props.deck.Q}</p>
+            <p>{props.deck.A}</p>
+            <div className="buttons">
+              <button className="black" onClick={handleClick}>
+                Aprendi agora
+              </button>
+              <button className="red" onClick={handleClick}>
+                Não lembrei
+              </button>
+              <button className="green" onClick={handleClick}>
+                Lembrei com esforço
+              </button>
+              <button className="yellow" onClick={handleClick}>
+                Zap!
+              </button>
+            </div>
           </div>
-        </div>
-        }
-        </div>
-    )
-
+        );
+      } else {
+        return(
+          <div className="flashcard back {borderColor}">
+            <div className="counter">{counter}/8</div>
+            <p>{props.deck.Q}</p>
+            <p>{props.deck.A}</p>
+            <img
+            src="./assets/turn.png"
+            alt="turn card"
+            onClick={() => nextFlashcard}
+          />
+          </div>
+        )
+      }
+    }
+  }
 }
 
-function handleClick(e) {
-  let color = e.target.className;
+function handleClick(props) {
+  let color = props.target.className;
+  props.setButtonClicked(true);
+  props.setBorderColor(color);
+}
+
+function nextFlashcard(props) {
+  //reset card back to front side and get the next element on the array
+  props.setFlipped = false;
+  props.setButtonClicked = false;
+  props.setBorderColor("");
+  props.setCurrentCard(props.currentCard+1);
   counter++;
 }

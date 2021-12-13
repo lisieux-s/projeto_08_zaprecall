@@ -99,9 +99,6 @@ header {
     font-weight: 400;
 }
 
-.buttons :first-child {
-    border-color: black;
-}
 .buttons :nth-child(2) {
     border-color: #F64848;
 }
@@ -110,4 +107,8 @@ header {
 }
 .buttons :last-child {
     border-color: #FFEF61;
+}
+
+.black {
+    border: 3px solid black;
 }
